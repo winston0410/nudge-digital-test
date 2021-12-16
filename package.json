@@ -1,0 +1,30 @@
+{
+  "name": "nudge",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^2.8.5",
+    "@reduxjs/toolkit": "^1.7.1",
+    "modern-css-reset": "^1.4.0",
+    "next": "12.0.7",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-hook-form": "^7.22.1",
+    "react-redux": "^7.2.6",
+    "react-router-dom": "^6.1.1",
+    "sass": "^1.43.5",
+    "yup": "^0.32.11"
+  },
+  "devDependencies": {
+    "@types/node": "16.11.11",
+    "@types/react": "17.0.37",
+    "eslint": "8.4.0",
+    "eslint-config-next": "12.0.7",
+    "typescript": "4.5.4"
+  }
+}

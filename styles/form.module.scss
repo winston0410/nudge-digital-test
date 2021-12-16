@@ -1,0 +1,49 @@
+$sm: 0.3rem;
+$md: 0.6rem;
+$lg: 0.9rem;
+$xl: 1.2rem;
+$xll: 1.2rem;
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 20rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.error {
+    position: absolute;
+    color: red;
+    z-index: 99;
+}
+
+.field{
+    position: relative;
+    width: 100%;
+    display: block;
+}
+
+.field input{
+    width: 100%;
+    display: block;
+}
+
+.field:not(:last-of-type){
+    margin-bottom: $sm;
+}
+
+.field-label{
+    color: grey;
+    position: absolute;
+    top: 50%;
+    transform: translate(10%, -50%);
+}
+
+.submit-button{
+    display: block;
+    width: 100%;
+    margin-top: $lg;
+}
