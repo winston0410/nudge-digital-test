@@ -1,12 +1,28 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { useAppSelector } from "../store";
+import { useAppSelector, useAppDispatch } from "../store";
 import { IFormData } from "../types/form";
+import { set } from "../redux/header";
+import style from "../styles/results.module.scss";
+import { useEffect } from "react";
+
+const tableSchema: IFormData = {
+  name: "",
+  email: "",
+};
 
 const TablePage: NextPage = () => {
   const results = useAppSelector((state) => state.form.data);
+  const dispatch = useAppDispatch();
 
-  console.log("check result", results);
+  useEffect(() => {
+    dispatch(
+      set({
+        title: "Results",
+        description: "This is the results page.",
+      })
+    );
+  }, [dispatch]);
 
   return (
     <>
@@ -15,26 +31,31 @@ const TablePage: NextPage = () => {
         <meta name="description" content="This is the results page" />
       </Head>
       <div>
-        <h1>This is the result page</h1>
-        <table>
-          <thead>
-            <tr>
-                {results[0] && Object.keys(results[0]).map((key: string) => (
-                    <th key={key}>
-                        {key}
-                    </th>
+        {results.length > 0 ? (
+          <table className={style["result-table"]}>
+            <thead>
+              <tr>
+                {Object.keys(tableSchema).map((key: string) => (
+                  <th className={style["result-header"]} key={key}>
+                    {key}
+                  </th>
                 ))}
-            </tr>
-          </thead>
-          <tbody>
-            {results.map(row => (
+              </tr>
+            </thead>
+            <tbody>
+              {results.map((row) => (
                 <tr key={row.name + row.email}>
-                    <td>{row.name}</td>
-                    <td>{row.email}</td>
+                  <td className={style["result-col"]}>{row.name}</td>
+                  <td className={style["result-col"]}>{row.email}</td>
                 </tr>
-            ))}
-          </tbody>
-        </table>
+              ))}
+            </tbody>
+          </table>
+        ) : (
+          <div>
+            <span>No data can be found yet!</span>
+          </div>
+        )}
       </div>
     </>
   );

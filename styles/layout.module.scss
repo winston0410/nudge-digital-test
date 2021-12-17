@@ -1,0 +1,49 @@
+@import './var.scss';
+
+$bgColor: #f0ebc7;
+
+.outer-container{
+    height: 100vh;
+    overflow: scroll;
+}
+
+.header{
+    padding: $xl $xl;
+    //  box-shadow: 0px 0px 3px 3px #777777;
+}
+
+.container{
+    background: $bgColor;
+    padding: $xl;
+    height: 100%;
+}
+
+.tab-list{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+@mixin tab {
+  padding: $lg;
+  display: block;
+  cursor: pointer;
+}
+
+.active-tab{
+    @include tab;
+    background: darken($bgColor, 10%)
+}
+
+.active-tab:hover{
+    background: darken($bgColor, 20%)
+}
+
+.tab{
+    @include tab;
+    background: lighten($bgColor, 10%)
+}
+
+.tab:hover{
+    background: darken($bgColor, 20%)
+}

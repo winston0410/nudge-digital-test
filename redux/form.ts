@@ -1,11 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import type { IFormData } from '../types/form'
 
-export interface CounterState {
+export interface FormState {
   data: Array<IFormData>
 }
 
-const initialState: CounterState = {
+const initialState: FormState = {
   data: [],
 }
 

@@ -1,15 +1,14 @@
-$sm: 0.3rem;
-$md: 0.6rem;
-$lg: 0.9rem;
-$xl: 1.2rem;
-$xll: 1.2rem;
+@import './var.scss';
+
+$errorSpace: $xll;
 
 .form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    max-width: 20rem;
+    width: 100%;
+    max-width: 25rem;
     margin-left: auto;
     margin-right: auto;
 }
@@ -29,21 +28,44 @@ $xll: 1.2rem;
 .field input{
     width: 100%;
     display: block;
+    padding: $md;
 }
 
 .field:not(:last-of-type){
-    margin-bottom: $sm;
+    margin-bottom: $errorSpace;
 }
 
 .field-label{
     color: grey;
     position: absolute;
     top: 50%;
-    transform: translate(10%, -50%);
+    transform: translate(25%, -50%);
 }
 
 .submit-button{
     display: block;
     width: 100%;
-    margin-top: $lg;
+    margin-top: $errorSpace * 3;
+    background: $black;
+    color: $white;
+    appearance: none;
+    border: none;
+    padding: $md;
+    cursor: pointer;
+    transition: background 0.5s;
+}
+
+.submit-button:hover{
+    background: lighten($black, 15%);
+}
+
+.container{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hide{
+    display: none;
 }

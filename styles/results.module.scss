@@ -1,0 +1,18 @@
+.result-table{
+    table-layout: fixed;
+}
+
+@mixin col {
+  text-align: left;
+  width: 100px;
+  overflow: auto;
+}
+
+.result-header{
+    @include col;
+    text-transform: capitalize;
+}
+
+.result-col {
+    @include col;
+}
